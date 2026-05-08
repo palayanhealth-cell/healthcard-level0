@@ -1,0 +1,55 @@
+# Ignore MCP config with secrets
+.vscode/mcp.json
+
+# Local AI/editor tooling
+.adal/
+.agents/
+.aider-desk/
+.augment/
+.bob/
+.claude/
+.codeartsdoer/
+.codebuddy/
+.codemaker/
+.codestudio/
+.commandcode/
+.continue/
+.cortex/
+.crush/
+.devin/
+.factory/
+.forge/
+.goose/
+.iflow/
+.junie/
+.kilocode/
+.kiro/
+.kode/
+.mcpjam/
+.mux/
+.neovate/
+.openhands/
+.pi/
+.pochi/
+.qoder/
+.qwen/
+.roo/
+.rovodev/
+.tabnine/
+.trae/
+.vibe/
+.windsurf/
+.zencoder/
+
+# Dependencies and builds
+**/node_modules/
+**/dist/
+**/coverage/
+supabase/.temp/
+
+# Local environment files
+**/.env
+**/.env.local
+
+# Archives
+*.zip

@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Encoder Dashboard - Palayan Health Card</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-container": "#ffc2a7",
+                    "surface-container-low": "#f2f3fc",
+                    "on-secondary-fixed-variant": "#3d4a43",
+                    "inverse-on-surface": "#f0f0f9",
+                    "surface-dim": "#d9d9e2",
+                    "on-error": "#ffffff",
+                    "inverse-surface": "#2e3037",
+                    "on-surface": "#191c21",
+                    "tertiary-fixed-dim": "#ffb694",
+                    "on-primary-container": "#bbd0ff",
+                    "secondary-container": "#d8e6dc",
+                    "outline-variant": "#c2c6d4",
+                    "primary-container": "#0056b3",
+                    "on-primary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "secondary": "#54615a",
+                    "background": "#f9f9ff",
+                    "on-tertiary": "#ffffff",
+                    "surface-container": "#ededf6",
+                    "error": "#ba1a1a",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed": "#d8e6dc",
+                    "surface-variant": "#e1e2ea",
+                    "on-tertiary-fixed-variant": "#7b2f00",
+                    "surface-container-high": "#e7e8f0",
+                    "on-secondary-fixed": "#121e18",
+                    "inverse-primary": "#acc7ff",
+                    "secondary-fixed-dim": "#bccac0",
+                    "on-surface-variant": "#424752",
+                    "surface-container-highest": "#e1e2ea",
+                    "primary": "#003f87",
+                    "surface-bright": "#f9f9ff",
+                    "on-primary-fixed-variant": "#004491",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed": "#ffdbcc",
+                    "on-error-container": "#93000a",
+                    "on-background": "#191c21",
+                    "tertiary-container": "#983c00",
+                    "on-secondary-container": "#5a6760",
+                    "surface-tint": "#115cb9",
+                    "primary-fixed-dim": "#acc7ff",
+                    "primary-fixed": "#d7e2ff",
+                    "outline": "#727784",
+                    "on-tertiary-fixed": "#351000",
+                    "tertiary": "#722b00",
+                    "on-primary-fixed": "#001a40",
+                    "surface": "#f9f9ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "md": "24px",
+                    "margin_desktop": "40px",
+                    "xs": "8px",
+                    "sm": "16px",
+                    "lg": "32px",
+                    "base": "4px",
+                    "margin_mobile": "16px",
+                    "xl": "48px",
+                    "gutter": "16px"
+            },
+            "fontFamily": {
+                    "button": ["Public Sans"],
+                    "body-md": ["Public Sans"],
+                    "label-caps": ["Public Sans"],
+                    "body-lg": ["Public Sans"],
+                    "h2": ["Public Sans"],
+                    "h1": ["Public Sans"]
+            },
+            "fontSize": {
+                    "button": ["16px", {"lineHeight": "1", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "h2": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "h1": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Public Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- TopNavBar -->
+<header class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md flex justify-between items-center px-6 h-16 w-full z-40 fixed top-0 border-b border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none font-public-sans text-sm antialiased">
+<div class="flex items-center gap-4">
+<span class="text-xl font-black text-blue-700 dark:text-blue-400 tracking-tight">Palayan Health Card</span>
+<div class="hidden md:flex ml-8 items-center bg-surface-container rounded-full px-4 py-1.5 border border-outline-variant/30">
+<span class="material-symbols-outlined text-slate-400 text-lg mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-64" placeholder="Search Client..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-full transition-all duration-200">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-full transition-all duration-200">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-slate-200 ml-2">
+<img alt="Encoder Profile Picture" class="h-full w-full object-cover" data-alt="A professional headshot of a Filipino healthcare administrator in a clean office environment. The lighting is soft and natural, reflecting a bright and trustworthy medical atmosphere. He is wearing a crisp white shirt, and the background is slightly blurred with minimalist clinical decor in shades of light blue and white." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEiUm_kT6-XXgZ2oMED0kHcmOX80BDMQwFrFkGIQCSkH-29Y69w5A8zDG0ZjEsvGfNS5WurRQB9aFNoXWdtQRCyc-LwU9W00WNZf8XTMAEMhVtASS7jww-mZUV5iFh1-txTMh2c1J5GbV_h5tDKVlJEQL1m5K1Q0gW2tAvXzDlBmxgO1Nxvb5jbl5NZngzBhVtOO65Sh9XzdgnA6FPUsauyIjg6VjwBe9VI3FiXQVofAA8JTdwaSKEkLSoj5oo2bWubRayIEGBtJM"/>
+</div>
+</div>
+</header>
+<!-- SideNavBar -->
+<nav class="fixed left-0 top-0 h-full flex flex-col pt-20 pb-6 z-30 bg-white dark:bg-slate-900 w-64 border-r border-slate-200 dark:border-slate-800 flat no shadows font-public-sans text-sm tracking-wide">
+<div class="px-6 mb-8 flex items-center gap-3">
+<div class="h-10 w-10 bg-primary-container rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined">health_and_safety</span>
+</div>
+<div>
+<h2 class="text-lg font-bold text-slate-900 dark:text-white leading-none">Palayan Health</h2>
+<p class="text-xs text-slate-500">Encoder Portal</p>
+</div>
+</div>
+<div class="flex-1 space-y-1">
+<!-- Active Tab: Dashboard -->
+<a class="flex items-center gap-3 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border-r-4 border-blue-700 px-4 py-3 rounded-l-lg font-semibold active:scale-95 transform transition-transform" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-3 hover:bg-slate-50 dark:hover:bg-slate-800/50 hover:text-blue-600 dark:hover:text-blue-300 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">person_add</span>
+                Client Registration
+            </a>
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-3 hover:bg-slate-50 dark:hover:bg-slate-800/50 hover:text-blue-600 dark:hover:text-blue-300 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">history</span>
+                Recent History
+            </a>
+</div>
+<div class="mt-auto px-2 space-y-1 border-t border-slate-100 dark:border-slate-800 pt-4">
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-2 hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">edit_note</span>
+                Drafts
+            </a>
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-2 hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">cloud_done</span>
+                Submitted
+            </a>
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-2 hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+                Activity Log
+            </a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="ml-64 pt-20 p-md min-h-screen">
+<div class="max-w-7xl mx-auto space-y-md">
+<!-- Header Section -->
+<div class="flex justify-between items-end mb-xs">
+<div>
+<h1 class="font-h1 text-h1 text-on-surface">Encoder Dashboard</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Welcome back, Juan. Here's your registration activity.</p>
+</div>
+<button class="bg-primary hover:bg-primary-container text-white font-button text-button px-6 py-3 rounded-lg flex items-center gap-2 shadow-lg shadow-primary/20 transition-all active:scale-95">
+<span class="material-symbols-outlined text-lg">add</span>
+                    Start New Registration
+                </button>
+</div>
+<!-- Performance Overview Section -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<div class="bg-white p-sm rounded-xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+<p class="text-label-caps font-label-caps text-slate-500 mb-2">TODAY</p>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-bold text-on-surface">12</span>
+<span class="text-xs font-semibold text-green-600 bg-green-50 px-2 py-0.5 rounded-full flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>+2%
+                        </span>
+</div>
+<p class="text-[12px] text-slate-400 mt-2">vs yesterday</p>
+</div>
+<div class="bg-white p-sm rounded-xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+<p class="text-label-caps font-label-caps text-slate-500 mb-2">YESTERDAY</p>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-bold text-on-surface">15</span>
+<span class="text-xs font-semibold text-slate-400 bg-slate-50 px-2 py-0.5 rounded-full">Target Met</span>
+</div>
+<p class="text-[12px] text-slate-400 mt-2">Full capacity</p>
+</div>
+<div class="bg-white p-sm rounded-xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+<p class="text-label-caps font-label-caps text-slate-500 mb-2">THIS WEEK</p>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-bold text-on-surface">84</span>
+<span class="text-xs font-semibold text-green-600 bg-green-50 px-2 py-0.5 rounded-full flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>+12%
+                        </span>
+</div>
+<p class="text-[12px] text-slate-400 mt-2">vs last week</p>
+</div>
+<div class="bg-white p-sm rounded-xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+<p class="text-label-caps font-label-caps text-slate-500 mb-2">THIS MONTH</p>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-bold text-on-surface">342</span>
+<span class="text-xs font-semibold text-blue-600 bg-blue-50 px-2 py-0.5 rounded-full flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">task_alt</span>On track
+                        </span>
+</div>
+<p class="text-[12px] text-slate-400 mt-2">85% of monthly goal</p>
+</div>
+</section>
+<!-- Productivity & Drafts Row -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-md">
+<!-- Registration Trends Graph (Large Card) -->
+<div class="lg:col-span-2 bg-white rounded-xl border border-slate-100 shadow-sm p-md">
+<div class="flex justify-between items-center mb-lg">
+<div>
+<h2 class="font-h2 text-h2 text-on-surface">Registration Trends</h2>
+<p class="font-body-md text-sm text-on-surface-variant">Activity volume over the last 14 days</p>
+</div>
+<div class="flex gap-2">
+<span class="flex items-center gap-1.5 text-xs font-medium text-slate-500">
+<span class="h-3 w-3 rounded-full bg-primary"></span> Registrations
+                            </span>
+</div>
+</div>
+<!-- Simplified Visual Graph Placeholder using CSS -->
+<div class="relative h-[280px] w-full flex items-end justify-between px-2 pt-6">
+<!-- Y-Axis Labels -->
+<div class="absolute left-0 top-0 bottom-0 flex flex-col justify-between text-[10px] text-slate-400 pr-2 border-r border-slate-50">
+<span>20</span><span>15</span><span>10</span><span>5</span><span>0</span>
+</div>
+<!-- Graph Bars/Lines Representation -->
+<div class="flex-1 ml-8 h-full flex items-end justify-around gap-2">
+<div class="group relative flex-1 h-[40%] bg-blue-50 rounded-t-sm hover:bg-primary transition-all">
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">8</div>
+</div>
+<div class="group relative flex-1 h-[55%] bg-blue-50 rounded-t-sm hover:bg-primary transition-all">
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">11</div>
+</div>
+<div class="group relative flex-1 h-[75%] bg-blue-100 rounded-t-sm hover:bg-primary transition-all"></div>
+<div class="group relative flex-1 h-[60%] bg-blue-100 rounded-t-sm hover:bg-primary transition-all"></div>
+<div class="group relative flex-1 h-[85%] bg-blue-200 rounded-t-sm hover:bg-primary transition-all"></div>
+<div class="group relative flex-1 h-[90%] bg-blue-200 rounded-t-sm hover:bg-primary transition-all"></div>
+<div class="group relative flex-1 h-[45%] bg-blue-300 rounded-t-sm hover:bg-primary transition-all"></div>
+<div class="group relative flex-1 h-[65%] bg-blue-300 rounded-t-sm hover:bg-primary transition-all"></div>
+<div class="group relative flex-1 h-[80%] bg-primary-container rounded-t-sm hover:bg-primary transition-all"></div>
+<div class="group relative flex-1 h-[70%] bg-primary-container rounded-t-sm hover:bg-primary transition-all"></div>
+<div class="group relative flex-1 h-[95%] bg-primary rounded-t-sm"></div>
+<div class="group relative flex-1 h-[60%] bg-primary rounded-t-sm"></div>
+<div class="group relative flex-1 h-[75%] bg-primary rounded-t-sm"></div>
+<div class="group relative flex-1 h-[50%] bg-primary rounded-t-sm"></div>
+</div>
+</div>
+<!-- X-Axis Labels -->
+<div class="flex justify-between ml-10 mt-4 text-[10px] text-slate-400 font-medium">
+<span>OCT 1</span><span>OCT 4</span><span>OCT 7</span><span>OCT 10</span><span>OCT 14</span>
+</div>
+</div>
+<!-- Right Column: Quick Actions & Help -->
+<div class="space-y-md">
+<div class="bg-primary text-white rounded-xl shadow-lg shadow-primary/10 p-sm overflow-hidden relative group">
+<div class="absolute top-0 right-0 p-4 opacity-10 transform translate-x-4 -translate-y-4 group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform">
+<span class="material-symbols-outlined text-[120px]">verified_user</span>
+</div>
+<h3 class="font-h2 text-xl mb-2 relative z-10">Quick Actions</h3>
+<div class="space-y-2 relative z-10">
+<button class="w-full bg-white/20 hover:bg-white/30 backdrop-blur-md rounded-lg py-2.5 px-4 text-left flex items-center gap-3 transition-colors">
+<span class="material-symbols-outlined text-lg">search_check</span>
+<span class="text-sm font-medium">Verify Beneficiary</span>
+</button>
+<button class="w-full bg-white/20 hover:bg-white/30 backdrop-blur-md rounded-lg py-2.5 px-4 text-left flex items-center gap-3 transition-colors">
+<span class="material-symbols-outlined text-lg">assignment_ind</span>
+<span class="text-sm font-medium">Update Member Info</span>
+</button>
+<button class="w-full bg-white/20 hover:bg-white/30 backdrop-blur-md rounded-lg py-2.5 px-4 text-left flex items-center gap-3 transition-colors">
+<span class="material-symbols-outlined text-lg">print</span>
+<span class="text-sm font-medium">Print Temp Card</span>
+</button>
+</div>
+</div>
+<div class="bg-white border border-slate-100 rounded-xl p-sm shadow-sm">
+<h3 class="font-h2 text-lg text-on-surface mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-blue-600">help_center</span>
+                            Resources
+                        </h3>
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<span class="h-2 w-2 rounded-full bg-blue-400 mt-2"></span>
+<a class="text-sm text-slate-600 hover:text-blue-700 underline decoration-slate-200" href="#">2024 Enrollment Guide</a>
+</li>
+<li class="flex items-start gap-3">
+<span class="h-2 w-2 rounded-full bg-blue-400 mt-2"></span>
+<a class="text-sm text-slate-600 hover:text-blue-700 underline decoration-slate-200" href="#">Required Documents List</a>
+</li>
+<li class="flex items-start gap-3">
+<span class="h-2 w-2 rounded-full bg-blue-400 mt-2"></span>
+<a class="text-sm text-slate-600 hover:text-blue-700 underline decoration-slate-200" href="#">System Support Chat</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Current Drafts Section -->
+<section class="bg-white rounded-xl border border-slate-100 shadow-sm overflow-hidden">
+<div class="px-md py-sm border-b border-slate-50 flex justify-between items-center">
+<div>
+<h2 class="font-h2 text-h2 text-on-surface">Current Drafts</h2>
+<p class="font-body-md text-sm text-on-surface-variant">Pick up where you left off</p>
+</div>
+<a class="text-primary font-button text-sm flex items-center gap-1 hover:underline" href="#">
+                        View All Drafts
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-slate-50 text-label-caps text-slate-500">
+<tr>
+<th class="px-md py-4 font-bold">CLIENT NAME</th>
+<th class="px-md py-4 font-bold">COMPLETION PROGRESS</th>
+<th class="px-md py-4 font-bold text-center">ACTION</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100">
+<!-- Draft 1 -->
+<tr class="hover:bg-blue-50/30 transition-colors">
+<td class="px-md py-5">
+<div class="flex items-center gap-3">
+<div class="h-9 w-9 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-sm">JC</div>
+<div>
+<p class="font-semibold text-on-surface">Juan Dela Cruz</p>
+<p class="text-xs text-slate-400">Modified 2 hours ago</p>
+</div>
+</div>
+</td>
+<td class="px-md py-5 w-1/2">
+<div class="flex items-center gap-4">
+<div class="flex-1 h-2 bg-slate-100 rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-[75%] rounded-full"></div>
+</div>
+<span class="text-sm font-semibold text-primary">75%</span>
+</div>
+</td>
+<td class="px-md py-5 text-center">
+<button class="bg-surface-container hover:bg-blue-100 text-primary font-button text-sm px-4 py-2 rounded-lg transition-colors inline-flex items-center gap-2">
+                                        Resume <span class="material-symbols-outlined text-sm">play_arrow</span>
+</button>
+</td>
+</tr>
+<!-- Draft 2 -->
+<tr class="hover:bg-blue-50/30 transition-colors">
+<td class="px-md py-5">
+<div class="flex items-center gap-3">
+<div class="h-9 w-9 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center font-bold text-sm">MS</div>
+<div>
+<p class="font-semibold text-on-surface">Maria Clara Santos</p>
+<p class="text-xs text-slate-400">Modified 5 hours ago</p>
+</div>
+</div>
+</td>
+<td class="px-md py-5">
+<div class="flex items-center gap-4">
+<div class="flex-1 h-2 bg-slate-100 rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-[40%] rounded-full"></div>
+</div>
+<span class="text-sm font-semibold text-primary">40%</span>
+</div>
+</td>
+<td class="px-md py-5 text-center">
+<button class="bg-surface-container hover:bg-blue-100 text-primary font-button text-sm px-4 py-2 rounded-lg transition-colors inline-flex items-center gap-2">
+                                        Resume <span class="material-symbols-outlined text-sm">play_arrow</span>
+</button>
+</td>
+</tr>
+<!-- Draft 3 -->
+<tr class="hover:bg-blue-50/30 transition-colors">
+<td class="px-md py-5">
+<div class="flex items-center gap-3">
+<div class="h-9 w-9 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center font-bold text-sm">
+<span class="material-symbols-outlined text-lg">person_outline</span>
+</div>
+<div>
+<p class="font-semibold text-on-surface italic">Unnamed Client</p>
+<p class="text-xs text-slate-400">Modified Yesterday</p>
+</div>
+</div>
+</td>
+<td class="px-md py-5">
+<div class="flex items-center gap-4">
+<div class="flex-1 h-2 bg-slate-100 rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-[15%] rounded-full"></div>
+</div>
+<span class="text-sm font-semibold text-primary">15%</span>
+</div>
+</td>
+<td class="px-md py-5 text-center">
+<button class="bg-surface-container hover:bg-blue-100 text-primary font-button text-sm px-4 py-2 rounded-lg transition-colors inline-flex items-center gap-2">
+                                        Resume <span class="material-symbols-outlined text-sm">play_arrow</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+</main>
+<!-- Global Floating Action Button for Mobile -->
+<button class="md:hidden fixed bottom-6 right-6 h-14 w-14 rounded-full bg-primary text-white shadow-xl flex items-center justify-center z-50">
+<span class="material-symbols-outlined text-2xl">add</span>
+</button>
+</body></html>

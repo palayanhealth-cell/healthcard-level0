@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Palayan Health - Admin Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#003f87",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed-variant": "#3d4a43",
+                        "outline-variant": "#c2c6d4",
+                        "inverse-surface": "#2e3037",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#ededf6",
+                        "surface-container-highest": "#e1e2ea",
+                        "surface": "#f9f9ff",
+                        "on-surface-variant": "#424752",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb694",
+                        "primary-fixed": "#d7e2ff",
+                        "on-secondary-fixed": "#121e18",
+                        "on-tertiary-fixed-variant": "#7b2f00",
+                        "inverse-primary": "#acc7ff",
+                        "primary-container": "#0056b3",
+                        "on-background": "#191c21",
+                        "inverse-on-surface": "#f0f0f9",
+                        "on-primary-fixed": "#001a40",
+                        "on-primary-container": "#bbd0ff",
+                        "primary-fixed-dim": "#acc7ff",
+                        "surface-container-low": "#f2f3fc",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed-dim": "#bccac0",
+                        "surface-tint": "#115cb9",
+                        "secondary": "#54615a",
+                        "on-tertiary-container": "#ffc2a7",
+                        "background": "#f9f9ff",
+                        "outline": "#727784",
+                        "on-secondary-container": "#5a6760",
+                        "surface-container-high": "#e7e8f0",
+                        "tertiary-container": "#983c00",
+                        "on-error-container": "#93000a",
+                        "on-surface": "#191c21",
+                        "on-tertiary-fixed": "#351000",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#d9d9e2",
+                        "tertiary-fixed": "#ffdbcc",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#d8e6dc",
+                        "tertiary": "#722b00",
+                        "on-primary-fixed-variant": "#004491",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#d8e6dc",
+                        "surface-bright": "#f9f9ff",
+                        "surface-variant": "#e1e2ea"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "24px",
+                        "margin_desktop": "40px",
+                        "gutter": "16px",
+                        "sm": "16px",
+                        "margin_mobile": "16px",
+                        "xl": "48px",
+                        "lg": "32px",
+                        "base": "4px",
+                        "xs": "8px"
+                    },
+                    "fontFamily": {
+                        "h2": ["Public Sans"],
+                        "label-caps": ["Public Sans"],
+                        "body-md": ["Public Sans"],
+                        "body-lg": ["Public Sans"],
+                        "h1": ["Public Sans"],
+                        "button": ["Public Sans"]
+                    },
+                    "fontSize": {
+                        "h2": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "h1": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "button": ["16px", {"lineHeight": "1", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Public Sans', sans-serif; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+<!-- TopNavBar Implementation -->
+<header class="bg-white dark:bg-slate-950 text-blue-700 dark:text-blue-400 font-['Public_Sans'] text-sm antialiased docked full-width top-0 z-40 border-b border-slate-100 dark:border-slate-800 shadow-sm dark:shadow-none flex justify-between items-center h-16 px-6 w-full fixed">
+<div class="flex items-center gap-md">
+<span class="text-xl font-extrabold tracking-tight text-blue-700 dark:text-blue-400">HealthAdmin Portal</span>
+<div class="hidden md:flex relative ml-xl">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="pl-10 pr-4 py-1.5 rounded-full bg-surface-container border-none focus:ring-2 focus:ring-primary w-64 text-sm" placeholder="Search records..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined p-2 rounded-full hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors cursor-pointer active:opacity-80">notifications</button>
+<button class="material-symbols-outlined p-2 rounded-full hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors cursor-pointer active:opacity-80">help</button>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-slate-200">
+<img alt="Administrator profile" class="w-full h-full object-cover" data-alt="A professional headshot of a healthcare administrator in a clean office environment. The person is smiling confidently, wearing a professional blue blazer. The lighting is bright and airy, emphasizing a modern light-mode aesthetic with soft blue and white tones. The overall atmosphere conveys trust, competence, and official authority in a modern corporate medical setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCR_nkBjOEgItxDs3VEMmBVWdgqj3WpvQgh5-Z9uK7QCho6I51-ijuhesHvT6OE1q4LpmNNe4iSAmgAgbIiDsOqQu9CzZo1AS20kY55ZUyVItdKcanNZ_MN0AswKYGnGpT-p6l0IhzRXbsBb1cj0LMjQ_oRQzficbjtvgFXlQt6DHGICb06s7w2Ui4t5Q1B9IYGUe1ArdiLXYnI7XFgxch0jBG_OmoEuUN_sbIkdSZrz_eS3aH7Dehi6NINeeeLbMvN6HtBIcIlras"/>
+</div>
+</div>
+</header>
+<div class="flex pt-16">
+<!-- SideNavBar Implementation -->
+<nav class="bg-white dark:bg-slate-950 font-['Public_Sans'] text-base fixed left-0 top-0 h-full w-64 border-r border-slate-100 dark:border-slate-800 shadow-none flex flex-col h-screen py-4 z-30 pt-20">
+<div class="px-6 mb-lg">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">medical_services</span>
+</div>
+<div>
+<h2 class="text-lg font-bold text-slate-900 dark:text-slate-50 leading-tight">Palayan Health</h2>
+<p class="text-xs text-slate-500">Administrative Access</p>
+</div>
+</div>
+</div>
+<div class="flex-1 space-y-1">
+<!-- Dashboard is ACTIVE -->
+<a class="flex items-center gap-3 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 border-r-4 border-blue-700 font-bold px-6 py-3 scale-100 active:scale-[0.98] transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 px-6 py-3 scale-100 active:scale-[0.98] transition-all duration-200 hover:bg-slate-50 dark:hover:bg-slate-900/50" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span>Clients</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 px-6 py-3 scale-100 active:scale-[0.98] transition-all duration-200 hover:bg-slate-50 dark:hover:bg-slate-900/50" href="#">
+<span class="material-symbols-outlined" data-icon="medical_services">medical_services</span>
+<span>Staff Management</span>
+</a>
+</div>
+<div class="mt-auto border-t border-slate-100 pt-4">
+<a class="flex items-center gap-3 text-slate-500 dark:text-slate-400 hover:text-error px-6 py-3 scale-100 active:scale-[0.98] transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Log Out</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="ml-64 flex-1 p-margin_desktop bg-surface min-h-screen">
+<div class="max-w-7xl mx-auto">
+<!-- Welcome Section -->
+<div class="flex justify-between items-end mb-xl">
+<div>
+<span class="font-label-caps text-label-caps text-primary mb-base block">OVERVIEW</span>
+<h1 class="font-h1 text-h1 text-on-surface">Administrative Dashboard</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Welcome back. Here is what is happening with Palayan health services today.</p>
+</div>
+<div class="flex gap-sm">
+<button class="px-lg py-sm bg-white border border-outline-variant text-primary font-button rounded-xl hover:bg-surface-container-low transition-all shadow-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">download</span> Export Data
+                        </button>
+<button class="px-lg py-sm bg-primary-container text-on-primary font-button rounded-xl hover:opacity-90 transition-all shadow-md flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">add</span> New Registration
+                        </button>
+</div>
+</div>
+<!-- Bento Grid Statistics -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter mb-xl">
+<div class="bg-white p-md rounded-xl shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border border-slate-50 flex flex-col justify-between h-40">
+<div class="flex justify-between items-start">
+<div class="p-xs bg-blue-50 rounded-lg text-primary">
+<span class="material-symbols-outlined">person_add</span>
+</div>
+<span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-1 rounded-full">+12%</span>
+</div>
+<div>
+<p class="text-3xl font-extrabold text-on-surface">1,284</p>
+<p class="text-sm text-slate-500 font-medium">New Registrations</p>
+</div>
+</div>
+<div class="bg-white p-md rounded-xl shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border border-slate-50 flex flex-col justify-between h-40">
+<div class="flex justify-between items-start">
+<div class="p-xs bg-purple-50 rounded-lg text-purple-700">
+<span class="material-symbols-outlined">credit_card</span>
+</div>
+<span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-1 rounded-full">+5%</span>
+</div>
+<div>
+<p class="text-3xl font-extrabold text-on-surface">8,420</p>
+<p class="text-sm text-slate-500 font-medium">Active Health Cards</p>
+</div>
+</div>
+<div class="bg-white p-md rounded-xl shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border border-slate-50 flex flex-col justify-between h-40">
+<div class="flex justify-between items-start">
+<div class="p-xs bg-orange-50 rounded-lg text-orange-700">
+<span class="material-symbols-outlined">pending_actions</span>
+</div>
+<span class="text-xs font-bold text-orange-600 bg-orange-50 px-2 py-1 rounded-full">High</span>
+</div>
+<div>
+<p class="text-3xl font-extrabold text-on-surface">42</p>
+<p class="text-sm text-slate-500 font-medium">Pending Approvals</p>
+</div>
+</div>
+<div class="bg-white p-md rounded-xl shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border border-slate-50 flex flex-col justify-between h-40">
+<div class="flex justify-between items-start">
+<div class="p-xs bg-emerald-50 rounded-lg text-emerald-700">
+<span class="material-symbols-outlined">medical_information</span>
+</div>
+<span class="text-xs font-bold text-slate-400 bg-slate-50 px-2 py-1 rounded-full">Stable</span>
+</div>
+<div>
+<p class="text-3xl font-extrabold text-on-surface">98.2%</p>
+<p class="text-sm text-slate-500 font-medium">Service Satisfaction</p>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-xl">
+<!-- Recent Activity (Glassmorphism inspired) -->
+<div class="lg:col-span-2 glass-card p-xl rounded-xl shadow-lg border border-white">
+<div class="flex justify-between items-center mb-lg">
+<h2 class="font-h2 text-h2 text-on-surface">Recent Activity</h2>
+<button class="text-primary font-button text-sm hover:underline">View All</button>
+</div>
+<div class="space-y-6">
+<div class="flex items-start gap-md">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+<div class="flex-1 border-b border-slate-100 pb-4">
+<p class="text-on-surface font-semibold">Health Card Approved</p>
+<p class="text-sm text-on-surface-variant">Maria Santos's renewal application was approved by Admin Ramos.</p>
+<p class="text-xs text-slate-400 mt-1">2 minutes ago</p>
+</div>
+</div>
+<div class="flex items-start gap-md">
+<div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center text-orange-700 shrink-0">
+<span class="material-symbols-outlined">assignment_late</span>
+</div>
+<div class="flex-1 border-b border-slate-100 pb-4">
+<p class="text-on-surface font-semibold">New Application Submitted</p>
+<p class="text-sm text-on-surface-variant">Jose Rizal submitted a new primary health card application (Ref: #4829).</p>
+<p class="text-xs text-slate-400 mt-1">15 minutes ago</p>
+</div>
+</div>
+<div class="flex items-start gap-md">
+<div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-700 shrink-0">
+<span class="material-symbols-outlined">update</span>
+</div>
+<div class="flex-1 border-b border-slate-100 pb-4">
+<p class="text-on-surface font-semibold">Staff Schedule Updated</p>
+<p class="text-sm text-on-surface-variant">Shift rotations for Palayan Medical Center (East Wing) have been finalized.</p>
+<p class="text-xs text-slate-400 mt-1">1 hour ago</p>
+</div>
+</div>
+<div class="flex items-start gap-md">
+<div class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 shrink-0">
+<span class="material-symbols-outlined">description</span>
+</div>
+<div class="flex-1">
+<p class="text-on-surface font-semibold">Monthly Report Generated</p>
+<p class="text-sm text-on-surface-variant">The city-wide health registration summary for August is now available for review.</p>
+<p class="text-xs text-slate-400 mt-1">3 hours ago</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Actions & Alerts -->
+<div class="space-y-gutter">
+<div class="bg-primary text-on-primary p-xl rounded-xl shadow-xl relative overflow-hidden">
+<div class="relative z-10">
+<h3 class="text-lg font-bold mb-2">System Alert</h3>
+<p class="text-sm opacity-90 mb-4">You have 12 pending staff credential verifications requiring immediate attention before the audit.</p>
+<button class="w-full py-2 bg-white text-primary font-bold rounded-lg hover:bg-opacity-90 transition-all text-sm">Action Needed</button>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-10">
+<span class="material-symbols-outlined text-[120px]">warning</span>
+</div>
+</div>
+<div class="bg-white p-xl rounded-xl shadow-md border border-slate-50">
+<h3 class="font-h2 text-[18px] text-on-surface mb-md">Quick Actions</h3>
+<div class="grid grid-cols-2 gap-sm">
+<button class="flex flex-col items-center gap-2 p-md rounded-lg border border-slate-100 hover:bg-slate-50 hover:border-primary transition-all group">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">badge</span>
+<span class="text-xs font-semibold text-slate-600">Issue Card</span>
+</button>
+<button class="flex flex-col items-center gap-2 p-md rounded-lg border border-slate-100 hover:bg-slate-50 hover:border-primary transition-all group">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">event_available</span>
+<span class="text-xs font-semibold text-slate-600">Audit Logs</span>
+</button>
+<button class="flex flex-col items-center gap-2 p-md rounded-lg border border-slate-100 hover:bg-slate-50 hover:border-primary transition-all group">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">clinical_notes</span>
+<span class="text-xs font-semibold text-slate-600">Reports</span>
+</button>
+<button class="flex flex-col items-center gap-2 p-md rounded-lg border border-slate-100 hover:bg-slate-50 hover:border-primary transition-all group">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">settings</span>
+<span class="text-xs font-semibold text-slate-600">Settings</span>
+</button>
+</div>
+</div>
+<div class="bg-white p-md rounded-xl shadow-md border border-slate-50 overflow-hidden relative h-48">
+<img alt="Modern Medical Facility" class="absolute inset-0 w-full h-full object-cover" data-alt="A clean, sterile medical laboratory or hospital hallway with soft blue glowing lights. The background is slightly out of focus to create a sense of depth and professionalism. High-tech medical equipment is visible but not distracting. The color palette is dominated by professional whites and cool primary blues, representing a state-of-the-art civic healthcare infrastructure." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSyngi_-i29mLbKlZ-_Dm5j0yT1j4qHarXTq36YtDdsevGZuQhxjElQYgPLlFtN8-pSFYR74_IANMXOESOv6PbGOc8NlQMWSKMFjlXXS3KYtg8Kexn6MD7uR1ra3keSNhbnlwKZQMUIshabRXEBjtpvG_4LAmQSFrVHfPdhFWoytK6mCvtAwNWMOQ2WeF9mXqywF1qR1fASiK8Ra-cMwBwy1ZW_MagTjju83WdmPpj-ckvfIRLhg2SQrl1yy273LmpZHmGDS1gHo0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-md text-white">
+<p class="text-xs font-bold uppercase tracking-widest opacity-80">Infrastructure</p>
+<p class="text-sm font-semibold">City Health Expansion Phase 2</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Registration Trends Section -->
+<div class="mt-xl bg-white p-xl rounded-xl shadow-md border border-slate-50">
+<div class="flex justify-between items-center mb-lg">
+<div>
+<h2 class="font-h2 text-h2 text-on-surface">Registration Trends</h2>
+<p class="text-sm text-on-surface-variant">Daily growth of civic health registrations</p>
+</div>
+<div class="flex bg-slate-100 p-1 rounded-lg">
+<button class="px-4 py-1.5 text-xs font-bold rounded-md bg-white shadow-sm text-primary">Daily</button>
+<button class="px-4 py-1.5 text-xs font-bold rounded-md text-slate-500 hover:text-slate-700">Weekly</button>
+<button class="px-4 py-1.5 text-xs font-bold rounded-md text-slate-500 hover:text-slate-700">Monthly</button>
+</div>
+</div>
+<!-- Placeholder for a Data Visualization -->
+<div class="w-full h-64 bg-slate-50 rounded-lg flex items-end justify-between px-md pb-md gap-2">
+<div class="w-full bg-primary-fixed hover:bg-primary transition-colors h-[40%] rounded-t-sm relative group cursor-pointer">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[10px] px-2 py-1 rounded hidden group-hover:block">124</div>
+</div>
+<div class="w-full bg-primary-fixed hover:bg-primary transition-colors h-[55%] rounded-t-sm relative group cursor-pointer">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[10px] px-2 py-1 rounded hidden group-hover:block">182</div>
+</div>
+<div class="w-full bg-primary-fixed hover:bg-primary transition-colors h-[45%] rounded-t-sm relative group cursor-pointer">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[10px] px-2 py-1 rounded hidden group-hover:block">156</div>
+</div>
+<div class="w-full bg-primary-fixed hover:bg-primary transition-colors h-[70%] rounded-t-sm relative group cursor-pointer">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[10px] px-2 py-1 rounded hidden group-hover:block">210</div>
+</div>
+<div class="w-full bg-primary-fixed hover:bg-primary transition-colors h-[60%] rounded-t-sm relative group cursor-pointer">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[10px] px-2 py-1 rounded hidden group-hover:block">195</div>
+</div>
+<div class="w-full bg-primary hover:bg-primary transition-colors h-[85%] rounded-t-sm relative group cursor-pointer">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[10px] px-2 py-1 rounded hidden group-hover:block">244</div>
+</div>
+<div class="w-full bg-primary-fixed hover:bg-primary transition-colors h-[75%] rounded-t-sm relative group cursor-pointer">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[10px] px-2 py-1 rounded hidden group-hover:block">220</div>
+</div>
+</div>
+<div class="flex justify-between mt-4 text-xs font-bold text-slate-400 uppercase tracking-widest px-1">
+<span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Contextual FAB for quick client registration -->
+<button class="fixed bottom-lg right-lg w-14 h-14 bg-primary-container text-on-primary rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined text-[28px]">person_add</span>
+</button>
+</body></html>

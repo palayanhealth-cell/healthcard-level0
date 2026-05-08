@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Continue Drafts - Palayan Health Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#001a40",
+                        "surface-variant": "#e1e2ea",
+                        "tertiary-container": "#983c00",
+                        "surface-bright": "#f9f9ff",
+                        "outline": "#727784",
+                        "on-secondary-fixed-variant": "#3d4a43",
+                        "surface-container-low": "#f2f3fc",
+                        "secondary": "#54615a",
+                        "on-tertiary-fixed-variant": "#7b2f00",
+                        "on-secondary-container": "#5a6760",
+                        "surface-container-highest": "#e1e2ea",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#004491",
+                        "on-primary-container": "#bbd0ff",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#2e3037",
+                        "on-tertiary-container": "#ffc2a7",
+                        "background": "#f9f9ff",
+                        "on-error": "#ffffff",
+                        "primary-fixed": "#d7e2ff",
+                        "error": "#ba1a1a",
+                        "primary-container": "#0056b3",
+                        "on-tertiary-fixed": "#351000",
+                        "on-surface": "#191c21",
+                        "on-background": "#191c21",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#424752",
+                        "tertiary": "#722b00",
+                        "secondary-fixed": "#d8e6dc",
+                        "secondary-container": "#d8e6dc",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-high": "#e7e8f0",
+                        "surface-tint": "#115cb9",
+                        "tertiary-fixed-dim": "#ffb694",
+                        "surface-container": "#ededf6",
+                        "surface": "#f9f9ff",
+                        "secondary-fixed-dim": "#bccac0",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#121e18",
+                        "primary": "#003f87",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#ffdbcc",
+                        "surface-dim": "#d9d9e2",
+                        "inverse-primary": "#acc7ff",
+                        "inverse-on-surface": "#f0f0f9",
+                        "primary-fixed-dim": "#acc7ff",
+                        "outline-variant": "#c2c6d4"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "16px",
+                        "xl": "48px",
+                        "xs": "8px",
+                        "margin_mobile": "16px",
+                        "margin_desktop": "40px",
+                        "gutter": "16px",
+                        "lg": "32px",
+                        "base": "4px",
+                        "md": "24px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Public Sans"],
+                        "label-caps": ["Public Sans"],
+                        "h1": ["Public Sans"],
+                        "h2": ["Public Sans"],
+                        "body-md": ["Public Sans"],
+                        "button": ["Public Sans"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "h1": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "h2": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "button": ["16px", {"lineHeight": "1", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Public Sans', sans-serif;
+            background-color: #f9f9ff;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background">
+<!-- Desktop SideNavBar -->
+<aside class="fixed left-0 top-0 h-full overflow-y-auto bg-white dark:bg-slate-900 w-64 hidden lg:flex flex-col border-r border-slate-100 dark:border-slate-800 z-50">
+<div class="p-md">
+<div class="flex items-center gap-3 mb-xl">
+<div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined" data-icon="health_and_safety">health_and_safety</span>
+</div>
+<div>
+<h1 class="text-lg font-black text-blue-700 dark:text-blue-400 leading-tight">Hospital Portal</h1>
+<p class="text-xs text-slate-500 font-medium">Official Encoder Access</p>
+</div>
+</div>
+<nav class="space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-blue-600 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-['Public_Sans'] text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 border-r-4 border-blue-700 rounded-r-lg font-['Public_Sans'] text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="person_add">person_add</span>
+<span>Client Registration</span>
+</a>
+</nav>
+</div>
+<div class="mt-auto p-md border-t border-slate-100 dark:border-slate-800">
+<button class="w-full flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-error transition-colors font-['Public_Sans'] text-sm font-medium">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Logout</span>
+</button>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="lg:ml-64 min-h-screen pb-24 lg:pb-0">
+<!-- TopNavBar -->
+<header class="flex justify-between items-center h-16 px-4 md:px-8 w-full sticky top-0 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-sm z-40">
+<div class="flex items-center gap-4">
+<button class="lg:hidden text-slate-600">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-blue-700" data-icon="history">history</span>
+<h2 class="text-xl font-bold tracking-tight text-blue-700 dark:text-blue-400 font-['Public_Sans']">Palayan Health Portal</h2>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-600 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors rounded-full">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-slate-200 overflow-hidden border border-slate-300">
+<img alt="Encoder Profile Picture" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZ15_sD6zMmi-AL0DxPmLrfh0E0NHHebEAZY-CgTcGLFRmv605vEwcPnzKMUlsDfC8dGmQz_PkblmY4jIa2I3Cpux0IyovJASxJwASKrg967Z2Lzwn03zC8b-WYH1ykD6uCDCl9Cuq7cTx4r74bh_wdehY9C70gnk4nJ1TDdyIN8hVIENcWkPk22PnSevZsXkNvafii7JqGIZQNvZcDUgzFMdelQ2a9G8olIJF9aDWs74INVNORdFQ__Lw1xGo-lAHNvM8hC4oXvE"/>
+</div>
+</div>
+</header>
+<!-- Page Content -->
+<div class="max-w-6xl mx-auto p-4 md:p-8"><!-- Sub-navigation Tabs -->
+<div class="border-b border-outline-variant mb-lg">
+<nav aria-label="Tabs" class="flex gap-8 px-2 md:px-0">
+<button class="flex items-center gap-3 py-4 border-b-2 border-primary text-primary font-bold transition-all">
+<span class="material-symbols-outlined" data-icon="keyboard">keyboard</span>
+<span class="font-['Public_Sans'] text-base">Drafts</span>
+</button>
+<button class="flex items-center gap-3 py-4 border-b-2 border-transparent text-on-surface-variant hover:text-on-surface font-medium transition-all">
+<span class="material-symbols-outlined" data-icon="shield_person">shield_person</span>
+<span class="font-['Public_Sans'] text-base">Submitted</span>
+</button>
+<button class="flex items-center gap-3 py-4 border-b-2 border-transparent text-on-surface-variant hover:text-on-surface font-medium transition-all">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="font-['Public_Sans'] text-base">Activity Log</span>
+</button>
+</nav>
+</div>
+<div class="mb-lg flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h1 class="font-h1 text-h1 text-on-surface mb-2">Continue Draft</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Pick up where you left off. These registrations are saved locally and have not been submitted yet.</p>
+</div>
+<button class="px-6 py-2.5 bg-primary text-white rounded-lg font-button flex items-center justify-center gap-2 hover:bg-primary-container transition-all shadow-sm">
+<span class="material-symbols-outlined text-[20px]" data-icon="add">add</span>
+                New Registration
+            </button>
+</div>
+<!-- Professional Data Table -->
+<div class="bg-white rounded-xl shadow-sm border border-outline-variant overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant">
+<th class="px-6 py-4 font-bold text-sm text-on-surface-variant uppercase tracking-wider">Client Name</th>
+<th class="px-6 py-4 font-bold text-sm text-on-surface-variant uppercase tracking-wider">Date Started</th>
+<th class="px-6 py-4 font-bold text-sm text-on-surface-variant uppercase tracking-wider">Last Step Completed</th>
+<th class="px-6 py-4 font-bold text-sm text-on-surface-variant uppercase tracking-wider">Progress</th>
+<th class="px-6 py-4 font-bold text-sm text-on-surface-variant uppercase tracking-wider text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<!-- Row 1 -->
+<tr class="hover:bg-slate-50/50 transition-colors">
+<td class="px-6 py-4">
+<span class="font-bold text-on-surface">Juan Dela Cruz</span>
+</td>
+<td class="px-6 py-4 text-on-surface-variant text-sm">Oct 24, 2023</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-primary-fixed text-primary rounded-full text-xs font-semibold">Step 3: Identifiers</span>
+</td>
+<td class="px-6 py-4 min-w-[150px]">
+<div class="flex items-center gap-3">
+<div class="flex-1 bg-surface-container-low h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 60%"></div>
+</div>
+<span class="text-xs font-bold text-primary">60%</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="flex items-center gap-1.5 px-3 py-1.5 bg-primary text-white rounded-lg text-sm font-button hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="play_arrow">play_arrow</span>
+                                        Resume
+                                    </button>
+<button class="p-1.5 text-outline hover:text-error hover:bg-error-container rounded-md transition-all">
+<span class="material-symbols-outlined text-[20px]" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-slate-50/50 transition-colors">
+<td class="px-6 py-4">
+<span class="font-bold text-on-surface">Maria Clara Santos</span>
+</td>
+<td class="px-6 py-4 text-on-surface-variant text-sm">Oct 25, 2023</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-primary-fixed text-primary rounded-full text-xs font-semibold">Step 1: Details</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="flex-1 bg-surface-container-low h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 20%"></div>
+</div>
+<span class="text-xs font-bold text-primary">20%</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="flex items-center gap-1.5 px-3 py-1.5 bg-primary text-white rounded-lg text-sm font-button hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="play_arrow">play_arrow</span>
+                                        Resume
+                                    </button>
+<button class="p-1.5 text-outline hover:text-error hover:bg-error-container rounded-md transition-all">
+<span class="material-symbols-outlined text-[20px]" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-slate-50/50 transition-colors">
+<td class="px-6 py-4">
+<span class="font-bold text-on-surface italic opacity-60">Unnamed Client</span>
+</td>
+<td class="px-6 py-4 text-on-surface-variant text-sm">Oct 26, 2023</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-primary-fixed text-primary rounded-full text-xs font-semibold">Step 1: Details</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="flex-1 bg-surface-container-low h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 5%"></div>
+</div>
+<span class="text-xs font-bold text-primary">5%</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="flex items-center gap-1.5 px-3 py-1.5 bg-primary text-white rounded-lg text-sm font-button hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="play_arrow">play_arrow</span>
+                                        Resume
+                                    </button>
+<button class="p-1.5 text-outline hover:text-error hover:bg-error-container rounded-md transition-all">
+<span class="material-symbols-outlined text-[20px]" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footer/Empty state filler -->
+<div class="px-6 py-4 bg-slate-50 border-t border-outline-variant flex justify-between items-center">
+<span class="text-sm text-on-surface-variant">Showing 3 active drafts</span>
+<nav class="flex gap-1">
+<button class="p-1 rounded hover:bg-slate-200 text-outline disabled:opacity-30" disabled="">
+<span class="material-symbols-outlined text-sm" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="p-1 rounded bg-primary text-white text-xs w-6 h-6 flex items-center justify-center font-bold">1</button>
+<button class="p-1 rounded hover:bg-slate-200 text-outline disabled:opacity-30" disabled="">
+<span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</button>
+</nav>
+</div>
+</div>
+<!-- Bento Stats Section -->
+<div class="mt-xl grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<div class="lg:col-span-2 bg-gradient-to-br from-primary to-primary-container rounded-2xl p-lg text-white relative overflow-hidden shadow-lg">
+<div class="relative z-10 h-full flex flex-col justify-between">
+<div>
+<span class="text-sm font-bold uppercase tracking-widest opacity-80 font-['Public_Sans']">System Status</span>
+<h2 class="text-3xl font-bold mt-2">Local Storage Sync</h2>
+<p class="mt-4 opacity-90 max-w-md">Your drafts are currently saved to this browser. Complete them before clearing your cache to ensure no data is lost.</p>
+</div>
+<div class="mt-8 flex gap-4">
+<div class="px-4 py-2 bg-white/10 backdrop-blur-md rounded-lg border border-white/20">
+<span class="block text-2xl font-bold">3</span>
+<span class="text-xs uppercase">Pending Drafts</span>
+</div>
+<div class="px-4 py-2 bg-white/10 backdrop-blur-md rounded-lg border border-white/20">
+<span class="block text-2xl font-bold">84%</span>
+<span class="text-xs uppercase">Storage Capacity</span>
+</div>
+</div>
+</div>
+<!-- Decorative Background Element -->
+<div class="absolute -right-10 -bottom-10 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+</div>
+<div class="bg-white rounded-2xl p-lg border border-slate-100 shadow-sm flex flex-col justify-between">
+<div>
+<div class="w-12 h-12 bg-secondary-fixed text-on-secondary-fixed rounded-xl flex items-center justify-center mb-4">
+<span class="material-symbols-outlined" data-icon="tips_and_updates">tips_and_updates</span>
+</div>
+<h3 class="font-bold text-lg text-on-surface">Pro Tip</h3>
+<p class="text-on-surface-variant text-sm mt-2">You can resume any registration from the same device within 30 days of the last update.</p>
+</div>
+<a class="text-primary font-bold text-sm flex items-center gap-1 mt-6 hover:underline" href="#">
+                    Read Encoder Manual
+                    <span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 px-2 pb-safe bg-white/90 backdrop-blur-md border-t border-slate-200 dark:border-slate-800 lg:hidden shadow-[0_-4px_12px_rgba(0,0,0,0.05)]">
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-['Public_Sans'] text-[10px] uppercase tracking-wider mt-1">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-blue-700 dark:text-blue-400 font-bold bg-blue-50 dark:bg-blue-900/30 rounded-xl px-4 py-1 scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="add_circle" style="font-variation-settings: 'FILL' 1;">add_circle</span>
+<span class="font-['Public_Sans'] text-[10px] uppercase tracking-wider mt-1">Register</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="font-['Public_Sans'] text-[10px] uppercase tracking-wider mt-1">History</span>
+</a>
+</nav>
+</body></html>
