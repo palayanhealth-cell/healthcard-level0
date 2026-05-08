@@ -3,6 +3,7 @@
   "outputDirectory": "dist",
   "installCommand": "npm install",
   "framework": "vite",
+  "rootDirectory": "healthcard-app",
   "rewrites": [
     {
       "source": "/(.*)",
